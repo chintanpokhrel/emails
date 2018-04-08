@@ -18,6 +18,7 @@ class Analyzer:
 		for word in self.counter:
 			if self.counter[word] >= topth:
 				self.top_words[word] = self.counter[word]
+		return self.top_words
 
 	def vizualize(self):
 		import numpy as np
@@ -34,7 +35,12 @@ class Analyzer:
 		plt.savefig('word-count.png')
 		plt.show()
 
-import sys
-a = Analyzer(sys.argv[1])
-a.filter(int(sys.argv[2]))
-a.vizualize()
+
+if __name__ == "__main__":
+	import sys
+	a = Analyzer(sys.argv[1])
+	a.filter(int(sys.argv[2]))
+	a.vizualize()
+
+
+
